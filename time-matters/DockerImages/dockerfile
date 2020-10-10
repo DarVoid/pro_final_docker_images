@@ -1,0 +1,21 @@
+FROM jupyter/minimal-notebook
+EXPOSE 8888
+CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
+USER root
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git curl wget openjdk-8-jdk
+RUN export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ADD notebooks4docker /home/jovyan
+RUN pip install git+https://github.com/LIAAD/Time-Matters.git
+RUN pip install nltk
+RUN python -m nltk.downloader punkt
+RUN pip install git+https://github.com/LIAAD/yake
+RUN pip install git+https://github.com/JMendes1995/py_rule_based
+RUN pip install git+https://github.com/JMendes1995/py_heideltime
+RUN pip install regex
+USER root
+RUN chmod 111 /opt/conda/lib/python3.7/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/bin/* 
+USER jovyan
+ADD data/MultiDocTexts data/MultiDocTexts
