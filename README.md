@@ -1,5 +1,5 @@
 # Final Project - Docker Images
-### To use jupyter notebook for time-matters:
+### To use Jupyter Notebook for time-matters:
 Pull time-matters image from Docker Hub: 
 ```sh
 $ docker pull liaad/time-matters
@@ -16,10 +16,10 @@ Discover the IP address:
 ```sh
 $ docker-machine ip
 ```
-Finally, introduce the ip on a web broswer with the respective port.
+Introduce the ip on a web broswer with the respective port.
 
 Further information about the notebook in [here](https://hub.docker.com/r/liaad/time-matters).
-### To use jupyter notebook for py_heideltime:
+### To use Jupyter Notebook for py_heideltime:
 
 Pull time-matters image from Docker Hub: 
 ```sh
