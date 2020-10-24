@@ -16,6 +16,6 @@ RUN pip install git+https://github.com/JMendes1995/py_rule_based
 RUN pip install git+https://github.com/JMendes1995/py_heideltime
 RUN pip install regex
 USER root
-RUN chmod 111 /opt/conda/lib/python3.7/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/bin/* 
+RUN chmod 111 /opt/conda/lib/python3.8/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/bin/* 
 USER jovyan
 ADD data/MultiDocTexts data/MultiDocTexts

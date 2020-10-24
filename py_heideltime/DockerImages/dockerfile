@@ -4,7 +4,7 @@ CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow
 USER root
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git curl wget openjdk-8-jdk
+    apt-get install -y git curl wget openjdk-8-jdk python3.7
 RUN export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ADD notebooks4docker /home/jovyan
@@ -14,9 +14,8 @@ RUN wget https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/russian.p
 RUN wget https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/estonian.par.gz
 RUN gunzip russian.par.gz
 RUN gunzip estonian.par.gz
-RUN cp russian.par /opt/conda/lib/python3.7/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/lib/russian.par
-RUN cp estonian.par /opt/conda/lib/python3.7/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/lib/estonian.par
+RUN cp russian.par /opt/conda/lib/python3.8/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/lib/russian.par
+RUN cp estonian.par /opt/conda/lib/python3.8/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/lib/estonian.par
 RUN rm russian.par
 RUN rm estonian.par
-RUN chmod 111 /opt/conda/lib/python3.7/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/bin/*
-USER jovyan
+RUN chmod 111 /opt/conda/lib/python3.8/site-packages/py_heideltime/Heideltime/TreeTaggerLinux/bin/*
