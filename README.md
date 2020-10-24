@@ -1,4 +1,9 @@
 # Final Project - Docker Images
+### To build images from these docker files:
+1- change folder to desired package you want to try
+2- docker build -t <nameYouDesireForTheDockerContainer> .
+3- docker run -p <port>:8888 <nameYouDesireForTheDockerContainer>:latest
+  
 ### To use Jupyter Notebook for time-matters:
 Pull time-matters image from Docker Hub: 
 ```sh
